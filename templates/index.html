@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAREON STUDIO | Account Portal</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FAFAFA;
+            --accent-red: #FF3B30;
+            --accent-orange: #FF9500;
+            --accent-gradient: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
+            --text-dark: #1C1C1E;
+            --text-muted: #8E8E93;
+            --border-color: #E5E5EA;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            padding: 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-primary);
+        }
+
+        .logo-container {
+            display: inline-block;
+            background: #FFFFFF;
+            padding: 8px;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .header h1 {
+            margin-top: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px 14px 14px 44px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: #FFFFFF;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent-gradient);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.95;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status-box {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .status-success {
+            background: #E8F5E9;
+            color: #2E7D32;
+            border: 1px solid #C8E6C9;
+        }
+
+        .status-error {
+            background: #FFEBEE;
+            color: #C62828;
+            border: 1px solid #FFCDD2;
+        }
+
+        .footer {
+            padding: 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-link i {
+            color: var(--accent-red);
+        }
+
+        .developer-badge {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://pub-4c6b2dbf3a0c4862a8964b1546de6283.r2.dev/1788108247140_47gr4.webp" alt="VAREON STUDIO Logo">
+        </div>
+        <h1>VAREON STUDIO</h1>
+        <p>Enterprise Account Generation Gateway</p>
+    </header>
+
+    <main class="main-content">
+        <div class="card">
+            <div class="form-group">
+                <label for="chatId">Telegram Chat ID</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <input type="text" id="chatId" placeholder="Enter your Chat ID" required>
+                </div>
+            </div>
+
+            <button class="btn-submit" id="submitBtn" onclick="requestGeneration()">
+                <i class="fa-solid fa-bolt"></i> Generate & Dispatch
+            </button>
+
+            <div id="statusBox" class="status-box"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-info">
+            <a href="https://t.me/Vareonstudioofc" target="_blank" class="footer-link">
+                <i class="fa-brands fa-telegram"></i> @Vareonstudioofc
+            </a>
+            <a href="https://wa.me/8801889221262" target="_blank" class="footer-link">
+                <i class="fa-brands fa-whatsapp"></i> 01889221262
+            </a>
+        </div>
+        <div class="developer-badge">
+            <i class="fa-solid fa-code"></i> Lead Developer: <strong>SHEZIN BOY</strong>
+        </div>
+    </footer>
+
+    <script>
+        async function requestGeneration() {
+            const chatId = document.getElementById('chatId').value.trim();
+            const statusBox = document.getElementById('statusBox');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!chatId) {
+                showStatus('Please provide a valid Telegram Chat ID.', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            statusBox.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: chatId })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    showStatus(result.message, 'success');
+                } else {
+                    showStatus(result.message || 'Generation failed.', 'error');
+                }
+            } catch (err) {
+                showStatus('Network error occurred. Please check back later.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-bolt"></i> Generate & Dispatch';
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusBox = document.getElementById('statusBox');
+            statusBox.className = 'status-box status-' + type;
+            statusBox.innerText = message;
+            statusBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
